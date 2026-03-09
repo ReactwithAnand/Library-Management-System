@@ -123,6 +123,8 @@
             exit();
         }
     }
+
+    $navbarSearchQuery = isset($_GET['search']) ? trim($_GET['search']) : '';
 ?>
 
 <!DOCTYPE html>
@@ -133,6 +135,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Issue Book Management System</title>
     <link rel="icon" href="../../assets/images/logo3.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap');
@@ -144,6 +148,12 @@
             --c-linen: #ece7d1;
             --c-ink: #2b2418;
             --c-white: #fffdf6;
+            --bg-color: #ece7d1;
+            --header-bg: #dbcea5;
+            --primary-color: #8e977d;
+            --secondary-color: #8a7650;
+            --text-dark: #333;
+            --card-bg: #fff;
         }
 
         * {
@@ -351,38 +361,48 @@
             color: var(--c-linen);
         }
 
-         header {
+        .issue-navbar {
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 10px 40px;
             background-color: var(--header-bg);
-            border-bottom: 1px solid rgba(138, 118, 80, 0.2); 
+            border-bottom: 1px solid rgba(138, 118, 80, 0.2);
         }
 
-        .logo {
-            font-family: "Times New Roman", serif;
-            font-size: 24px;
-            font-weight: bold;
+        .issue-navbar,
+        .issue-navbar * {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        }
+
+        .issue-navbar .logo-front {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .issue-navbar .logo {
+            font-size: 20px;
             display: flex;
             align-items: center;
             gap: 5px;
             color: var(--secondary-color);
         }
-        
-        .logo span { background: var(--secondary-color); color: #fff; padding: 0 5px; border-radius: 2px; }
 
-        .nav-links {
+        .issue-navbar {
             display: flex;
             gap: 20px;
             font-size: 14px;
-            margin-right: auto;
-            margin-left: 30px;
             color: var(--secondary-color);
             font-weight: bold;
         }
 
-        .search-bar {
+        .issue-navbar a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .issue-navbar .search-bar {
             display: flex;
             align-items: center;
             background: #fff;
@@ -393,7 +413,7 @@
             margin: 0 20px;
         }
 
-        .search-select {
+        .issue-navbar .search-select {
             background: #fdfdfd;
             border: none;
             padding: 8px;
@@ -403,28 +423,42 @@
             outline: none;
         }
 
-        .search-input {
+        .issue-navbar .search-input {
             border: none;
             padding: 8px;
             flex-grow: 1;
             outline: none;
         }
 
-        .search-btn {
+        .issue-navbar .search-btn {
             background: none;
             border: none;
             outline: none;
             padding: 0;
         }
 
-        .search-icon {
+        .issue-navbar .search-icon {
             padding: 8px 12px;
             color: var(--secondary-color);
             cursor: pointer;
         }
-        
-        .search-icon:hover { background: #eee; }
 
+        .issue-navbar .search-icon:hover {
+            background: #eee;
+        }
+
+        @media (max-width: 768px) {
+            .issue-navbar {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px;
+            }
+
+            .issue-navbar .search-bar {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
 
         /* responsive tweaks */
         @media (max-width:980px) {
@@ -452,13 +486,11 @@
 
 <body>
 
-<header>
-        <div class="logo">
-            <i class="fa-solid fa-book-open" style="margin-right:5px; color: var(--secondary-color);"></i>
-            LIBRARY
+    <header class="issue-navbar">
+        <div class="logo logo-front">
+            <img src="../../assets/images/logo3.png" alt="NeonLeaf Logo" style="width: 40px; height: 40px;">
+            NeonLeaf
         </div>
-        
-      
 
         <form class="search-bar" method="GET" action="?">
             <select name="category_filter" class="search-select">
@@ -466,7 +498,7 @@
                 <option>Category</option>
                 <option>Author</option>
             </select>
-            <input type="text" name="search" class="search-input" placeholder="Search (e.g., 'Python' or 'Science')" value="<?php echo htmlspecialchars($searchQuery); ?>" required>
+            <input type="text" name="search" class="search-input" placeholder="Search (e.g., 'Python' or 'Science')" value="<?php echo htmlspecialchars($navbarSearchQuery); ?>" required>
             <button type="submit" class="search-btn">
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
             </button>

@@ -110,7 +110,7 @@ $mainBook = [
 // Mock User Data
 $currentUser = [
     "name" => "Ethan Clarke",
-    "photo" => "WhatsApp Image.jpg" 
+    "photo" => "../assets/images/default.jpeg" 
 ];
 ?>
 
@@ -137,7 +137,7 @@ $currentUser = [
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Montserrat','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--light-cream);
             color: var(--dark-brown);
             line-height: 1.6;
@@ -150,20 +150,20 @@ $currentUser = [
             top: 0;
             left: 0;
             width: 100%;
-            height: 70px;
+            height: 60px;
             background-color: var(--beige);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 40px;
-            box-shadow: 0 2px 10px rgba(138, 118, 80, 0.2);
+            padding: 10px 40px;
+           border-bottom: 1px solid rgba(138, 118, 80, 0.2);
             z-index: 1000;
         }
 
         .header-left, .header-right {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 5px;
         }
 
         .site-logo {
@@ -177,8 +177,7 @@ $currentUser = [
             font-size: 1.4rem;
             font-weight: bold;
             color: var(--dark-brown);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
         .user-photo {
@@ -354,8 +353,8 @@ $currentUser = [
 
 <header class="site-header">
     <div class="header-left">
-        <img src="cropped_circle_image.png" alt="Library Logo" class="site-logo">
-        <span class="company-name">Harvest Learning</span>
+        <img src="../assets/images/logo3.png" alt="NeonLeaf Logo" style="width: 40px; height: 40px;">
+        <span class="company-name">NeonLeaf</span>
     </div>
     <div class="header-right">
         <span class="user-name"><?php echo $currentUser['name']; ?></span>
