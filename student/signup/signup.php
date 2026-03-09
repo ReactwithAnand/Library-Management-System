@@ -339,8 +339,9 @@
                 
                 <div class="logo-section">
                     <div class="logo-icon">
+                        <img src="../../assets/images/logo3.png" alt="NeonLeaf Logo" style="width: 30px; height: 30px;">
                     </div>
-                    Cogie
+                    NeonLeaf
                 </div>
 
                 <div class="welcome-header">

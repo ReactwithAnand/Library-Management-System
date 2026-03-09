@@ -69,6 +69,7 @@
     <title>Library Catalog</title>
     <link rel="icon" href="../../assets/images/logo3.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -89,6 +90,12 @@
             font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
         }
 
+        .logo-front{
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
         body {
             background-color: var(--bg-color);
             color: var(--text-dark);
@@ -107,9 +114,7 @@
         }
 
         .logo {
-            font-family: "Times New Roman", serif;
-            font-size: 24px;
-            font-weight: bold;
+            font-size: 20px;
             display: flex;
             align-items: center;
             gap: 5px;
@@ -340,9 +345,9 @@
 <body>
 
     <header>
-        <div class="logo">
-            <i class="fa-solid fa-book-open" style="margin-right:5px; color: var(--secondary-color);"></i>
-            LIBRARY
+        <div class="logo logo-front">
+            <img src="../assets/images/logo3.png" alt="NeonLeaf Logo" style="width: 40px; height: 40px;">
+            NeonLeaf
         </div>
         
         <nav class="nav-links">

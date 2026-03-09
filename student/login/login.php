@@ -330,9 +330,9 @@
                 
                 <div class="logo-section">
                     <div class="logo-icon">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+                        <img src="../../assets/images/logo3.png" alt="NeonLeaf Logo" style="width: 30px; height: 30px;">
                     </div>
-                    Cogie
+                    NeonLeaf
                 </div>
 
                 <div class="welcome-header">
